@@ -12,6 +12,13 @@ const PlaceSchema = new Schema({
     state: {
         type: String,
         required: true
+    },
+    residente: {
+        type: String, 
+        required: true
+
+        // mongoose.Schema.Types.ObjectId,
+        // ref:'residente'
     }
     // date: {
     //     type: Date,
