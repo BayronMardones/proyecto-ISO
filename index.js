@@ -23,6 +23,7 @@ mongoose.set('useUnifiedTopology', true);
 mongoose.connect(process.env.DB, (err) => {
     if(err){
         return console.log('Error al conectar con la base de datos => ', err)
+        
     }
     return console.log('conectado a la base de datos')
 });

@@ -3,6 +3,7 @@ const Place = require('../models/place');
 const createPlace = (req, res) => {
     const {name, capacity, state, residente} = req.body;
     const newPlace = new Place({
+        
         name,
         capacity,
         state,
@@ -10,6 +11,7 @@ const createPlace = (req, res) => {
     });
     newPlace.save((err, place) => {
         if(err){
+
             return res.status(400).send({message: "Error al crear place"})
         }
         return res.status(200).send(place)
