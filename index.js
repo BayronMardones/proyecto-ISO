@@ -7,7 +7,7 @@ const app = express();
 const placeRoutes = require('./routes/placeRoutes'); 
 const residenteRoutes = require('./routes/residenteRoutes'); 
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 app.options('*', cors());
 app.use('/api', placeRoutes);
