@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const Residente = require('../models/residente');
 
 const createResidente = (req, res) => {
@@ -85,5 +84,5 @@ const getResidentes = (req, res) => {
 module.exports = {
     createResidente,
     getResidentes
->>>>>>> 1b9e34cc779826b2eb6652e65d39e0554f1920e8
+    
 }
