@@ -5,21 +5,25 @@ const PlaceSchema = new Schema({
         type: String,
         required: true
     },
-    capacity: {
+    capacidad: {
         type: Number,
         required: true
     },
-    state: {
+    // residente: {
+    //     type: String, 
+    //     required: true
+
+    //     // mongoose.Schema.Types.ObjectId,
+    //     // ref:'residente'
+    // },
+    descripcion: {
         type: String,
         required: true
     },
-    residente: {
-        type: String, 
+    estado: {
+        type: String,
         required: true
-
-        // mongoose.Schema.Types.ObjectId,
-        // ref:'residente'
-    }
+    },
     // date: {
     //     type: Date,
     //     required: true

@@ -1,12 +1,12 @@
 const Place = require('../models/place');
 
 const createPlace = (req, res) => {
-    const {name, capacity, state, residente} = req.body;
+    const {name, capacidad, descripcion, estado} = req.body;
     const newPlace = new Place({
         name,
-        capacity,
-        state,
-        residente
+        capacidad,
+        descripcion,
+        estado
     });
     newPlace.save((err, place) => {
         if(err){
@@ -19,7 +19,7 @@ const createPlace = (req, res) => {
 const getPlaces = (req, res) => {
     Place.find({}, (err, places) => {
         if(err){
-            return res.status(400).send({message: "Error al crear el place"})
+            return res.status(400).send({message: "Error al buscar el place"})
         }
         return res.status(200).send(places)
     })

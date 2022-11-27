@@ -9,6 +9,10 @@ const ResidenteSchema = new Schema({
         type: Number,
         required: true
     },
+    rol:{
+        type: String,
+        required: true
+    },
 
 });
 

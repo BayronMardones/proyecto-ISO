@@ -6,12 +6,16 @@ require('dotenv').config();
 const app = express();
 const placeRoutes = require('./routes/placeRoutes'); 
 const residenteRoutes = require('./routes/residenteRoutes'); 
+const estadoRoutes = require('./routes/estadoRoutes');
+const comentarioRoutes = require('./routes/comentarioRoutes');
 
 app.use(cors());
 app.use(express.json());
 app.options('*', cors());
 app.use('/api', placeRoutes);
 app.use('/api', residenteRoutes);
+app.use('/api', estadoRoutes);
+app.use('/api', comentarioRoutes);
 
 app.listen(process.env.PORT, () => console.log('Server started'));
 
