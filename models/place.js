@@ -24,11 +24,7 @@ const PlaceSchema = new Schema({
         type: String,
         required: true
     },
-    // date: {
-    //     type: Date,
-    //     required: true
-    // }
-
+   
 });
 
 module.exports = mongoose.model('Place', PlaceSchema);
