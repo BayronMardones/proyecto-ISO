@@ -4,8 +4,8 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const placeRoutes = require('./routes/placeRoutes'); 
-const residenteRoutes = require('./routes/residenteRoutes'); 
+const placeRoutes = require('./routes/placeRoutes');
+const residenteRoutes = require('./routes/residenteRoutes');
 const estadoRoutes = require('./routes/estadoRoutes');
 const comentarioRoutes = require('./routes/comentarioRoutes');
 const mailerController = require('./controllers/mailerController');

@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer')
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -7,9 +7,7 @@ const sendmail = (req, res) => {
     const token = 'tpmnoazhskovwcji'
     const mail = 'reservaespacioscondominio@gmail.com'
 
-    if (!token) {
-        return res.status(400).send({ message: "No se ha entregado la contraseña de aplicación para el correo" })
-    }
+
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
@@ -25,10 +23,10 @@ const sendmail = (req, res) => {
         'gabriela.carrasco1901@alumnos.ubiobio.cl'
     ]
     const mailOptions = {
-        from: `Administrador <Prueba de texto>`,
+        from: `Administrador`,
         to: directory,
-        subject: 'Prueba de correos',
-        text: `Hola, se ha realizado de forma correcta el envio de los correos, el mensaje era ${message}`
+        subject: 'Reserva de espacios',
+        text: `Hola, ${message}`
     }
     transporter.sendMail(mailOptions, (err, info) => {
         if (err) {
