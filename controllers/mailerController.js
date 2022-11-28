@@ -23,10 +23,10 @@ const sendmail = (req, res) => {
         'gabriela.carrasco1901@alumnos.ubiobio.cl'
     ]
     const mailOptions = {
-        from: `Administrador`,
+        from: `Administrador <reserva espacio>`,
         to: directory,
         subject: 'Reserva de espacios',
-        text: `Hola, ${message}`
+        text: `${message}`
     }
     transporter.sendMail(mailOptions, (err, info) => {
         if (err) {
