@@ -1,11 +1,12 @@
 const Residente = require('../models/residente');
 
 const createResidente = (req, res) => {
-    const {name, numeroHogar, rol} = req.body;
+    const {name, numeroHogar, rol, sanciones} = req.body;
     const newResidente = new Residente({
         name,
         numeroHogar,
         rol,
+        sanciones,
     });
     newResidente.save((err, residente) => {
         if(err){
