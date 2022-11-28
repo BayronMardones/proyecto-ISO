@@ -13,6 +13,9 @@ const ResidenteSchema = new Schema({
         type: String,
         required: true
     },
+    sanciones:{
+        type: String
+    }
 
 });
 
