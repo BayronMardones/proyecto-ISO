@@ -2,14 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const estadoSchema = new Schema({
-    idPlace: {
-        type: String,
-        required: true
-    },
-    idResidente: {
-        type: String,
-        required: true
-    },
     fechaReserva:{
         type: Date,
         required: true
@@ -18,7 +10,14 @@ const estadoSchema = new Schema({
         type: String,
         required : true
     },
-
+    place: [{
+        type: Schema.Types.ObjectId,
+        ref: 'place'
+    }],
+    residente: [{
+        type: Schema.Types.ObjectId,
+        ref: 'residente'
+    }]
 });
 
 module.exports = mongoose.model('estado', estadoSchema);
