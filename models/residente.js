@@ -19,4 +19,4 @@ const ResidenteSchema = new Schema({
 
 });
 
-module.exports = mongoose.model('Residente', ResidenteSchema);
+module.exports = mongoose.model('residente', ResidenteSchema);
