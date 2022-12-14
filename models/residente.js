@@ -13,7 +13,10 @@ const ResidenteSchema = new Schema({
         type: String,
         required: true
     },
+    sanciones:{
+        type: String
+    }
 
 });
 
-module.exports = mongoose.model('Residente', ResidenteSchema);
+module.exports = mongoose.model('residente', ResidenteSchema);
