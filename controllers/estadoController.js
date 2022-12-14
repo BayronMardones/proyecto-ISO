@@ -1,12 +1,12 @@
 const Estado = require('../models/estado');
 
 const createEstado = (req, res) => {
-    const {idPlace, idResidente, fechaReserva, estado} = req.body;
+    const {fechaReserva, estado, place, residente} = req.body;
     const newEstado = new Estado({
-        idPlace,
-        idResidente,
         fechaReserva,
         estado,
+        place,
+        residente
     });
     newEstado.save((err, estado) => {
         if(err){
@@ -17,13 +17,27 @@ const createEstado = (req, res) => {
 }
 
 const getEstados = (req, res) => {
-    Estado.find({}, (err, estados) => {
-        if(err){
+    Estado.find({}).populate({ path: 'place residente' }).exec((error, estados) => {
+        if(error){
             return res.status(400).send({message: "Error al buscar el estado"})
         }
         return res.status(200).send(estados)
     })
 }
+
+const getEstado = (req, res) => {
+    const { id } = req.params
+    Estado.findById(id).populate({ path: 'place residente' }).exec((error, estado) => {
+        if(error){
+            return res.status(400).send({message: "Error al buscar el estado"})
+        }
+        if (!estado) {
+            return res.status(404).send({ message: "No se ha podido encontrar el estado" })
+        }
+        return res.status(200).send(estado)
+    })
+}
+
 
 const deleteEstado = (req, res) => {
     const { id } = req.params
@@ -51,10 +65,10 @@ const updateEstado = (req, res) => {
     })
 }
 
-
 module.exports = {
     createEstado,
     getEstados,
+    getEstado,
     deleteEstado,
-    updateEstado
+    updateEstado,
 }
