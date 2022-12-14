@@ -23,8 +23,8 @@ const PlaceSchema = new Schema({
     estado: {
         type: String,
         required: true
-    },
-   
+    }
+
 });
 
-module.exports = mongoose.model('Place', PlaceSchema);
+module.exports = mongoose.model('place', PlaceSchema);
