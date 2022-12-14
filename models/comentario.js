@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const comentarioSchema = new Schema({
-    idEstado: {
-        type: String,
-        required: true
-    },
+    estado: [{
+        type: Schema.Types.ObjectId,
+        ref: 'estado'
+    }],
     nombreResidente: {
         type: String,
         required: true
@@ -14,10 +14,7 @@ const comentarioSchema = new Schema({
         type: String,
         required: true
     },
-    imagen:{
-        type: String,
-        required : true
-    },
+
 
 });
 
