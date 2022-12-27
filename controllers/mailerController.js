@@ -19,8 +19,7 @@ const sendmail = (req, res) => {
     })
     let directory = [//que hay que cambiarlo luego por el de los residentes
         'rodrigo.parra1901@alumnos.ubiobio.cl',
-        'bayron.mardones1901@alumnos.ubiobio.cl',
-        'gabriela.carrasco1901@alumnos.ubiobio.cl'
+        'bayron.mardones1901@alumnos.ubiobio.cl'
     ]
     const mailOptions = {
         from: `Administrador <reserva espacio>`,
