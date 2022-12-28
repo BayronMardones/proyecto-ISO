@@ -2,8 +2,8 @@ const nodemailer = require('nodemailer')
 const dotenv = require('dotenv');
 dotenv.config();
 
-const sendmail = (req, res) => {
-    const { message } = req.body
+const sendmail = (mailOptions, res) => {
+    // const { message } = req.body
     const token = 'tpmnoazhskovwcji'
     const mail = 'reservaespacioscondominio@gmail.com'
 
@@ -17,16 +17,16 @@ const sendmail = (req, res) => {
             pass: token
         }
     })
-    let directory = [//que hay que cambiarlo luego por el de los residentes
-        'rodrigo.parra1901@alumnos.ubiobio.cl',
-        'bayron.mardones1901@alumnos.ubiobio.cl'
-    ]
-    const mailOptions = {
-        from: `Administrador <reserva espacio>`,
-        to: directory,
-        subject: 'Reserva de espacios',
-        text: `${message}`
-    }
+    // let directory = [//que hay que cambiarlo luego por el de los residentes
+    //     'rodrigo.parra1901@alumnos.ubiobio.cl',
+    //     'bayron.mardones1901@alumnos.ubiobio.cl'
+    // ]
+    // const mailOptions = {
+    //     from: `Administrador <reserva espacio>`,
+    //     to: directory,
+    //     subject: 'Reserva de espacios',
+    //     text: `${message}`
+    // }
     transporter.sendMail(mailOptions, (err, info) => {
         if (err) {
             return res.status(400).send({ message: 'Error al enviar el correo' })

@@ -1,4 +1,5 @@
 const Estado = require('../models/estado');
+const sendmail = require('../controllers/mailerController');
 
 const createEstado = (req, res) => {
     const {fechaReserva, estado, place, residente} = req.body;
@@ -12,6 +13,18 @@ const createEstado = (req, res) => {
         if(err){
             return res.status(400).send({message: "Error al crear estado"})
         }
+
+        let directory = [//que hay que cambiarlo luego por el de los residentes
+        'bayron.mardones1901@alumnos.ubiobio.cl'  
+        ]
+        const mailOptions = {
+            from: `Sistema de reservas <reserva espacio>`,
+            to: directory,
+            subject: 'Reserva de espacios',
+            text: `se ha creado una reserva por el usuario ${estado.residente}`
+        }
+        sendmail(mailOptions)
+
         return res.status(200).send(estado)
     })
 }
@@ -21,6 +34,7 @@ const getEstados = (req, res) => {
         if(error){
             return res.status(400).send({message: "Error al buscar el estado"})
         }
+
         return res.status(200).send(estados)
     })
 }
