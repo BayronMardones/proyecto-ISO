@@ -2,12 +2,11 @@ const Comentario = require('../models/comentario');
 const sendmail = require('../controllers/mailerController');
 
 const createComentario = (req, res) => {
-    const {estado, nombreResidente, comentario, imagen} = req.body;
+    const {estado, nombreResidente, comentario} = req.body;
     const newComentario = new Comentario({
         estado,
         nombreResidente,
-        comentario,
-        imagen,
+        comentario
     });
     newComentario.save((err, comentario) => {
         if(err){
