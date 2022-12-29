@@ -1,13 +1,14 @@
-import { Stack } from '@chakra-ui/react'
 import React from 'react'
+import { Input, Stack, Table, Thead, Tbody, Tfoot, Tr, Th, Td, Container } from '@chakra-ui/react'
 
 const residente = () => {
   return (
+    <Container centerContent>
+        <div>residente</div>
 
-    <Stack>
-        residente
-    </Stack>
-    
+
+    </Container>
+
   )
 }
 
