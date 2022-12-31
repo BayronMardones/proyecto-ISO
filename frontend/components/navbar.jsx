@@ -1,0 +1,29 @@
+import React from 'react'
+import {Box, Breadcrumb, BreadcrumbLink, BreadcrumbItem, Container, Image, Flex, Spacer, Link} from '@chakra-ui/react'
+
+
+const navbar = () => {
+    return (
+        <Container backgroundColor='#5271FF' maxW>
+            <header>
+            <Breadcrumb spacing='15px' separator='-' color='white'>
+                <Box>
+                    <Link href='#'><Image borderRadius='full' boxSize='50px' src='https://i.postimg.cc/MT0N8Y44/Logotipo-de-estudio-de-maquillaje-minimalista-suave-1.png'/> </Link>
+                </Box>
+                <Spacer/>
+                <BreadcrumbItem>
+                    <BreadcrumbLink href='#' color='white' marginLeft='5' >INICIO</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                    <BreadcrumbLink href='#' color='white'>ESPACIOS</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                    <BreadcrumbLink href='#' color='white'>CONTACTO</BreadcrumbLink>
+                </BreadcrumbItem>
+            </Breadcrumb>
+            </header>
+        </Container>
+    )
+}
+
+export default navbar

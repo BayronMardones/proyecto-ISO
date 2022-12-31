@@ -1,11 +1,10 @@
 
 import { useState } from 'react'
-import { Stack , Button} from '@chakra-ui/react'
-import InputTest from '../components/inputTest'
+import {Box, Breadcrumb, BreadcrumbLink, BreadcrumbItem, Container, Image, Flex, Spacer, Link} from '@chakra-ui/react'
+import Navbar from '../components/navbar'
 
 export default function Home() {
   return (
-      //<InputTest></InputTest>
-      <Button>holaa</Button>
+    <Navbar></Navbar>
   )
 }
