@@ -15,7 +15,13 @@ const navbar = () => {
                     <BreadcrumbLink href='#' color='white' marginLeft='5' >INICIO</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbItem>
+                    <BreadcrumbLink href='#' color='white'>RESERVA</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
                     <BreadcrumbLink href='#' color='white'>ESPACIOS</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                    <BreadcrumbLink href='/residente' color='white'>RESIDENTE</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbItem>
                     <BreadcrumbLink href='#' color='white'>CONTACTO</BreadcrumbLink>
