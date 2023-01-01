@@ -1,11 +1,14 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { Input, Stack, Table, Thead, Tbody, Tfoot, Tr, Th, Td, Container, Heading, TableCaption, TableContainer } from '@chakra-ui/react'
+import { Button, Input, Stack, Table, Thead, Tbody, Tfoot, Tr, Th, Td, Container, Heading, TableCaption, TableContainer } from '@chakra-ui/react'
 import axios from 'axios'
+import {useRouter} from 'next/router'
+
 
 export default function residente() {
 
   const [residentes, setResidentes] = useState([])
+  const router = useRouter()
 
   const getResidentes = async () => {
     const response = await axios.get(`${process.env.API_URL}/residentes`)
@@ -33,6 +36,7 @@ export default function residente() {
 
     <Container maxW="container.xl" centerContent backgroundColor={"gray"}>
         <Heading textAlign={"center"} my = {10} >RESIDENTES</Heading>
+        <Button colorScheme='teal' variant='outline' onClick={()=>router.push('/residentes')}>Crear Residente</Button>
         <Table variant="simple">
             <Thead>
                 <Tr>

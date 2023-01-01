@@ -5,14 +5,14 @@ import Swal from 'sweetalert2'
 import Router from 'next/router'
 import {useRouter} from 'next/router'
 
-const residentes = () => {
+const places = () => {
 
     const router = useRouter()
     const [values, setValues] = useState({
         name: '',
-        numeroHogar: '',
-        rol: '',
-        sanciones: ''
+        capacidad: '',
+        descripcion: '',
+        estado: ''
     })
 
     const onSubmit = async(e) => {
@@ -20,23 +20,23 @@ const residentes = () => {
         console.log(values)
         
         try {
-            const response = await axios.post(`${process.env.API_URL}/residente`, values)
+            const response = await axios.post(`${process.env.API_URL}/place`, values)
             console.log(response)
             if(response.status === 200){
                 Swal.fire({
-                    title: 'Residente creado',
-                    text: 'El residente a sido creado de manera exitosa',
+                    title: 'Place creado',
+                    text: 'El espacio a sido creado de manera exitosa',
                     icon: 'success',
                     confirmButtonText: 'ok'
                 }).then((result)=>{
                     if(result.isConfirmed){
-                        Router.push('/residente')
+                        Router.push('/place')
                     }
                 })
             }else{
                 Swal.fire({
                     title: 'Error',
-                    text: 'No se ha podido crear el residente',
+                    text: 'no se ha podido crear el espacio',
                     icon: 'error',
                     confirmButtonText: 'ok'
                 })
@@ -44,7 +44,7 @@ const residentes = () => {
         } catch (err) {
             Swal.fire({
                 title: 'Error',
-                text: 'no se ha podido crear el residente',
+                text: 'no se ha podido crear el espacio',
                 icon: 'error',
                 confirmButtonText: 'ok'
             })
@@ -60,30 +60,30 @@ const residentes = () => {
 
     return (
         <Container maxW="container.md">
-            <Heading textAlign={"center"} my={10}>Crear Residentes</Heading>
+            <Heading textAlign={"center"} my={10}>Crear espacios</Heading>
             <Stack>
                 <FormControl>
-                    <FormLabel>Nombre Residente</FormLabel>
-                    <Input placeholder="ej: Pedro Hurtado" type={"text"} onChange={onChange} name={"name"}/> 
+                    <FormLabel>Nombre del espacio</FormLabel>
+                    <Input placeholder="ej: Salon de eventos mediano" type={"text"} onChange={onChange} name={"name"}/> 
                 </FormControl>
                 <FormControl>
-                    <FormLabel>Numero Hogar</FormLabel>
-                    <Input placeholder="ej: 101" type={"number"} onChange={onChange} name={"numeroHogar"}/> 
+                    <FormLabel>Capacidad del espacio</FormLabel>
+                    <Input placeholder="ej: 20" type={"number"} onChange={onChange} name={"capacidad"}/> 
                 </FormControl>
                 <FormControl>
-                    <FormLabel>Rol Residente</FormLabel>
-                    <Input placeholder="Rol Residente" type={"text"} onChange={onChange} name={"rol"}/> 
+                    <FormLabel>Descripcion del espacio</FormLabel>
+                    <Textarea placeholder="Ideal para cumpleaños" type={"text"} onChange={onChange} name={"descripcion"}/> 
                 </FormControl>
                 <FormControl>
-                    <FormLabel>Sanciones Residente</FormLabel>
-                    <Textarea placeholder="Sanciones Residente" type={"text"} onChange={onChange} name={"sanciones"}/> 
+                    <FormLabel>Estado del espacio</FormLabel>
+                    <Input placeholder="disponible para su uso" type={"text"} onChange={onChange} name={"estado"}/> 
                 </FormControl>
-                <Button colorScheme='teal' variant='outline' type='submit' onClick={onSubmit}>Crear residente</Button>
-                <Button colorScheme='red' variant='outline' onClick={()=>router.push('/residente')}>cancelar</Button>
+                <Button colorScheme='teal' variant='outline' type='submit' onClick={onSubmit}>crear espacio</Button>
+                <Button colorScheme='red' variant='outline' onClick={()=>router.push('/place')}>cancelar</Button>
 
             </Stack>
         </Container>
     )
     }
 
-export default residentes
+export default places
