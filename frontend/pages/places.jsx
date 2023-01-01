@@ -30,7 +30,7 @@ const places = () => {
                     confirmButtonText: 'ok'
                 }).then((result)=>{
                     if(result.isConfirmed){
-                        Router.push('/place')
+                        router.push('/place')
                     }
                 })
             }else{
