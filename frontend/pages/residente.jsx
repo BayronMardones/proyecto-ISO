@@ -21,10 +21,13 @@ export default function residente() {
 
   const showResidentes = () => {
       return residentes.map(residente => {
+        if(residente.sanciones == null){
+          residente.sanciones = 'Sin sanción'
+        }
         return(
           <Tr key={residente._id}>
             <Td>{residente.name}</Td>
-            <Td>{residente.numeroHogar}</Td>
+            <Td>#{residente.numeroHogar}</Td>
             <Td>{residente.rol}</Td>
             <Td>{residente.sanciones}</Td>
           </Tr>
@@ -36,15 +39,15 @@ export default function residente() {
     <box>
       <Navbar></Navbar>
       <Container maxW="container.md" centerContent backgroundColor={"white"}>
-        <Heading textAlign={"center"} my = {10} >RESIDENTES</Heading>
+        <Heading textAlign={"center"} my = {10} >Residentes</Heading>
         <Button colorScheme='teal' variant='outline' onClick={()=>router.push('/residentes')}>Crear Residente</Button>
         <Table variant="simple">
           <Thead>
               <Tr>
-                <Td>NOMBRE</Td>
-                <Td>HOGAR</Td>
-                <Td>ROL</Td>
-                <Td>SANCIONES</Td>
+                <Td>Nombre</Td>
+                <Td>Hogar</Td>
+                <Td>Rol</Td>
+                <Td>Sancion</Td>
                 </Tr>
                 {showResidentes()}
           </Thead>

@@ -9,10 +9,10 @@ const residentes = () => {
 
     const router = useRouter()
     const [values, setValues] = useState({
-        name: '',
-        numeroHogar: '',
-        rol: '',
-        sanciones: ''
+        name: null,
+        numeroHogar: null,
+        rol: null,
+        sanciones: null
     })
 
     const onSubmit = async(e) => {
@@ -29,7 +29,7 @@ const residentes = () => {
                     confirmButtonText: 'ok'
                 }).then((result)=>{
                     if(result.isConfirmed){
-                        Router.push('/residente')
+                        router.push('/residente')
                     }
                 })
             }else{
