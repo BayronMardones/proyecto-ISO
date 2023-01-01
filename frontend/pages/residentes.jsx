@@ -58,7 +58,7 @@ const residentes = () => {
     }
 
     return (
-        <box>
+        <Box>
             <Navbar></Navbar>
             <Container maxW="container.sm">
                 <Heading textAlign={"center"} my={10}>Crear Residentes</Heading>
@@ -86,7 +86,7 @@ const residentes = () => {
                     <Button colorScheme='red' variant='outline' onClick={()=>router.push('/residente')}>Cancelar</Button>
                 </Stack>
             </Container>
-        </box>
+        </Box>
         )
     }
 

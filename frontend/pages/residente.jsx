@@ -36,7 +36,7 @@ export default function residente() {
   }
 
   return (
-    <box>
+    <Box>
       <Navbar></Navbar>
       <Container maxW="container.md" centerContent backgroundColor={"white"}>
         <Heading textAlign={"center"} my = {10} >Residentes</Heading>
@@ -53,7 +53,7 @@ export default function residente() {
           </Thead>
         </Table>
       </Container>
-    </box>
+    </Box>
   )
 }
 
