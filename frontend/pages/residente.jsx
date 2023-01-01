@@ -2,6 +2,7 @@ import {React, useState, useEffect } from 'react'
 import { Button, Table, Thead, Tr, Td, Container, Heading } from '@chakra-ui/react'
 import axios from 'axios'
 import {useRouter} from 'next/router'
+import Navbar from '../components/navbar'
 
 
 export default function residente() {
@@ -32,22 +33,24 @@ export default function residente() {
   }
 
   return (
-
-    <Container maxW="container.xl" centerContent backgroundColor={"white"}>
+    <box>
+      <Navbar></Navbar>
+      <Container maxW="container.md" centerContent backgroundColor={"white"}>
         <Heading textAlign={"center"} my = {10} >RESIDENTES</Heading>
         <Button colorScheme='teal' variant='outline' onClick={()=>router.push('/residentes')}>Crear Residente</Button>
         <Table variant="simple">
-            <Thead>
-                <Tr>
-                    <Td>NOMBRE</Td>
-                    <Td>HOGAR</Td>
-                    <Td>ROL</Td>
-                    <Td>SANCIONES</Td>
+          <Thead>
+              <Tr>
+                <Td>NOMBRE</Td>
+                <Td>HOGAR</Td>
+                <Td>ROL</Td>
+                <Td>SANCIONES</Td>
                 </Tr>
                 {showResidentes()}
-            </Thead>
+          </Thead>
         </Table>
-    </Container>
+      </Container>
+    </box>
   )
 }
 

@@ -2,8 +2,8 @@ import {useState} from 'react'
 import { Button, Input, Stack, Container, Heading, FormControl, FormLabel, Textarea, Select} from '@chakra-ui/react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import Router from 'next/router'
-import {useRouter} from 'next/router'
+import {useRouter, Router} from 'next/router'
+import Navbar from '../components/navbar'
 
 const residentes = () => {
 
@@ -58,34 +58,36 @@ const residentes = () => {
     }
 
     return (
-        <Container maxW="container.md">
-            <Heading textAlign={"center"} my={10}>Crear Residentes</Heading>
-            <Stack>
-                <FormControl>
+        <box>
+            <Navbar></Navbar>
+            <Container maxW="container.sm">
+                <Heading textAlign={"center"} my={10}>Crear Residentes</Heading>
+                <Stack>
+                    <FormControl>
                     <FormLabel>Nombre Residente</FormLabel>
-                    <Input placeholder="ej: Pedro Hurtado" type={"text"} onChange={onChange} name={"name"}/>
-                </FormControl>
-                <FormControl>
+                        <Input placeholder="ej: Pedro Hurtado" type={"text"} onChange={onChange} name={"name"}/>
+                    </FormControl>
+                    <FormControl>
                     <FormLabel>Numero Hogar</FormLabel>
-                    <Input placeholder="ej: 101" type={"number"} onChange={onChange} name={"numeroHogar"}/>
-                </FormControl>
-                <FormControl>
-                    <FormLabel>Rol Residente</FormLabel>
-                    <Select placeholder="Selecciona una opción" onChange={onChange} name={"rol"}>
-                        <option value='Residente'>Residente</option>
-                        <option value='Administrador'>Administrador</option>
-                    </Select>
-                </FormControl>
-                <FormControl>
-                    <FormLabel>Sanciones Residente</FormLabel>
-                    <Textarea placeholder="Sanciones Residente" type={"text"} onChange={onChange} name={"sanciones"}/>
-                </FormControl>
-                <Button colorScheme='teal' variant='outline' type='submit' onClick={onSubmit}>Crear residente</Button>
-                <Button colorScheme='red' variant='outline' onClick={()=>router.push('/residente')}>cancelar</Button>
-
-            </Stack>
-        </Container>
-    )
+                        <Input placeholder="ej: 101" type={"number"} onChange={onChange} name={"numeroHogar"}/>
+                    </FormControl>
+                    <FormControl>
+                        <FormLabel>Rol Residente</FormLabel>
+                        <Select placeholder="Selecciona una opción" onChange={onChange} name={"rol"}>
+                            <option value='RESIDENTE'>Residente</option>
+                            <option value='ADMINISTRADOR'>Administrador</option>
+                        </Select>
+                    </FormControl>
+                    <FormControl>
+                        <FormLabel>Sanciones Residente</FormLabel>
+                        <Textarea placeholder="Sanciones Residente" type={"text"} onChange={onChange} name={"sanciones"}/>
+                    </FormControl>
+                    <Button colorScheme='teal' variant='outline' type='submit' onClick={onSubmit}>Crear residente</Button>
+                    <Button colorScheme='red' variant='outline' onClick={()=>router.push('/residente')}>cancelar</Button>
+                </Stack>
+            </Container>
+        </box>
+        )
     }
 
 export default residentes
