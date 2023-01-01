@@ -2,7 +2,7 @@ import {useState} from 'react'
 import { Button, Input, Stack, Container, Heading, FormControl, FormLabel, Textarea, Select} from '@chakra-ui/react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import {useRouter, Router} from 'next/router'
+import {useRouter} from 'next/router'
 import Navbar from '../components/navbar'
 
 const residentes = () => {
@@ -83,7 +83,7 @@ const residentes = () => {
                         <Textarea placeholder="Sanciones Residente" type={"text"} onChange={onChange} name={"sanciones"}/>
                     </FormControl>
                     <Button colorScheme='teal' variant='outline' type='submit' onClick={onSubmit}>Crear residente</Button>
-                    <Button colorScheme='red' variant='outline' onClick={()=>router.push('/residente')}>cancelar</Button>
+                    <Button colorScheme='red' variant='outline' onClick={()=>router.push('/residente')}>Cancelar</Button>
                 </Stack>
             </Container>
         </box>

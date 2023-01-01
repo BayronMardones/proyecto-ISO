@@ -19,7 +19,7 @@ const createResidente = (req, res) => {
 const getResidentes = (req, res) => {
     Residente.find({}, (err, residentes) => {
         if(err){
-            return res.status(400).send({message: "Error al crear el residente"})
+            return res.status(400).send({message: "Error al encontrar el residente"})
         }
         return res.status(200).send(residentes)
     })
