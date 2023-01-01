@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import { Button, Input, Stack, Container, Heading, FormControl, FormLabel, Textarea, Select} from '@chakra-ui/react'
+import { Button, Input, Stack, Container, Heading, FormControl, FormLabel, Textarea, Select, Box} from '@chakra-ui/react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import {useRouter} from 'next/router'

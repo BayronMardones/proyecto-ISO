@@ -1,6 +1,5 @@
 
-import { useState } from 'react'
-import {Box, Breadcrumb, BreadcrumbLink, BreadcrumbItem, Container, Image, Flex, Spacer, Link, Heading, Stack, Button, Text} from '@chakra-ui/react'
+import {Box, Container, Stack, Button, Text} from '@chakra-ui/react'
 import Navbar from '../components/navbar'
 
 export default function Home() {

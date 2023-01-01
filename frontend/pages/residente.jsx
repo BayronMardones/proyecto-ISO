@@ -1,5 +1,5 @@
 import {React, useState, useEffect } from 'react'
-import { Button, Table, Thead, Tr, Td, Container, Heading } from '@chakra-ui/react'
+import { Button, Table, Thead, Tr, Td, Container, Heading, Box } from '@chakra-ui/react'
 import axios from 'axios'
 import {useRouter} from 'next/router'
 import Navbar from '../components/navbar'
