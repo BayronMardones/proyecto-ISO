@@ -69,16 +69,16 @@ const estados = () => {
                         <Input placeholder="ej: 2022,08,13" type={"date"} onChange={onChange} name={"fechaReserva"}/>
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Estado del espacio</FormLabel>
-                        <Input placeholder="ej: Para fiestas" type={"text"} onChange={onChange} name={"estado"}/>
-                    </FormControl>
-                    <FormControl>
                         <FormLabel>Codigo de espacio</FormLabel>
                         <Input placeholder="ID del espacio" type={"id"} onChange={onChange} name={"place"}/>
                     </FormControl>
                     <FormControl>
                         <FormLabel>Codigo de usuario</FormLabel>
                         <Input placeholder="ID del usuario" type={"id"} onChange={onChange} name={"residente"}/>
+                    </FormControl>
+                    <FormControl>
+                        <FormLabel>¿Para que usarás el espacio?</FormLabel>
+                        <Textarea placeholder="ej: Para fiestas" type={"text"} onChange={onChange} name={"estado"}/>
                     </FormControl>
                     <Button colorScheme='teal' variant='outline' type='submit' onClick={onSubmit}>Crear espacio</Button>
                     <Button colorScheme='red' variant='outline' onClick={()=>router.push('/estado')}>Cancelar</Button>
