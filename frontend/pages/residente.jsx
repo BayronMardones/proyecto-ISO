@@ -1,6 +1,5 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import { Button, Input, Stack, Table, Thead, Tbody, Tfoot, Tr, Th, Td, Container, Heading, TableCaption, TableContainer } from '@chakra-ui/react'
+import {React, useState, useEffect } from 'react'
+import { Button, Table, Thead, Tr, Td, Container, Heading } from '@chakra-ui/react'
 import axios from 'axios'
 import {useRouter} from 'next/router'
 
@@ -34,7 +33,7 @@ export default function residente() {
 
   return (
 
-    <Container maxW="container.xl" centerContent backgroundColor={"gray"}>
+    <Container maxW="container.xl" centerContent backgroundColor={"white"}>
         <Heading textAlign={"center"} my = {10} >RESIDENTES</Heading>
         <Button colorScheme='teal' variant='outline' onClick={()=>router.push('/residentes')}>Crear Residente</Button>
         <Table variant="simple">

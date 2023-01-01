@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import { Button, Input, Stack, Container, Heading, FormControl, FormLabel, Textarea } from '@chakra-ui/react'
+import { Button, Input, Stack, Container, Heading, FormControl, FormLabel, Textarea, Select} from '@chakra-ui/react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import Router from 'next/router'
@@ -18,7 +18,6 @@ const residentes = () => {
     const onSubmit = async(e) => {
         e.preventDefault()
         console.log(values)
-        
         try {
             const response = await axios.post(`${process.env.API_URL}/residente`, values)
             console.log(response)
@@ -64,19 +63,22 @@ const residentes = () => {
             <Stack>
                 <FormControl>
                     <FormLabel>Nombre Residente</FormLabel>
-                    <Input placeholder="ej: Pedro Hurtado" type={"text"} onChange={onChange} name={"name"}/> 
+                    <Input placeholder="ej: Pedro Hurtado" type={"text"} onChange={onChange} name={"name"}/>
                 </FormControl>
                 <FormControl>
                     <FormLabel>Numero Hogar</FormLabel>
-                    <Input placeholder="ej: 101" type={"number"} onChange={onChange} name={"numeroHogar"}/> 
+                    <Input placeholder="ej: 101" type={"number"} onChange={onChange} name={"numeroHogar"}/>
                 </FormControl>
                 <FormControl>
                     <FormLabel>Rol Residente</FormLabel>
-                    <Input placeholder="Rol Residente" type={"text"} onChange={onChange} name={"rol"}/> 
+                    <Select placeholder="Selecciona una opción" onChange={onChange} name={"rol"}>
+                        <option value='Residente'>Residente</option>
+                        <option value='Administrador'>Administrador</option>
+                    </Select>
                 </FormControl>
                 <FormControl>
                     <FormLabel>Sanciones Residente</FormLabel>
-                    <Textarea placeholder="Sanciones Residente" type={"text"} onChange={onChange} name={"sanciones"}/> 
+                    <Textarea placeholder="Sanciones Residente" type={"text"} onChange={onChange} name={"sanciones"}/>
                 </FormControl>
                 <Button colorScheme='teal' variant='outline' type='submit' onClick={onSubmit}>Crear residente</Button>
                 <Button colorScheme='red' variant='outline' onClick={()=>router.push('/residente')}>cancelar</Button>
