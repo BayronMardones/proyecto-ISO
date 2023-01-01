@@ -36,7 +36,7 @@ export default function place() {
   return (
     <Box>
       <Navbar></Navbar>
-      <Container maxW="container.xl" centerContent backgroundColor={"gray"}>
+      <Container maxW="container.xl" centerContent backgroundColor={"white"}>
         <Heading textAlign={"center"} my = {10} >ESPACIOS</Heading>
         <Button colorScheme='teal' variant='outline' onClick={()=>router.push('/places')}>Crear place</Button>
         <Table variant="simple">

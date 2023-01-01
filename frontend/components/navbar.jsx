@@ -14,7 +14,7 @@ const navbar = () => {
                     <BreadcrumbLink href='/' color='white' marginLeft='5' >INICIO</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbItem>
-                    <BreadcrumbLink href='#' color='white'>RESERVA</BreadcrumbLink>
+                    <BreadcrumbLink href='/estados' color='white'>RESERVA</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbItem>
                     <BreadcrumbLink href='/place' color='white'>ESPACIOS</BreadcrumbLink>
@@ -23,7 +23,7 @@ const navbar = () => {
                     <BreadcrumbLink href='/residente' color='white'>RESIDENTE</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbItem>
-                    <BreadcrumbLink href='#' color='white'>CONTACTO</BreadcrumbLink>
+                    <BreadcrumbLink href='mailto:reservaespacioscondominio@gmail.com' color='white'>CONTACTO</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
         </Container>

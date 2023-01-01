@@ -78,7 +78,7 @@ const places = () => {
                     </FormControl>
                     <FormControl>
                         <FormLabel>Estado del espacio</FormLabel>
-                        <Input placeholder="disponible para su uso" type={"text"} onChange={onChange} name={"estado"}/>
+                        <Input placeholder="Disponible para su uso" type={"text"} onChange={onChange} name={"estado"}/>
                     </FormControl>
                     <Button colorScheme='teal' variant='outline' type='submit' onClick={onSubmit}>Crear espacio</Button>
                     <Button colorScheme='red' variant='outline' onClick={()=>router.push('/place')}>Cancelar</Button>
