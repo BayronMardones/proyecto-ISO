@@ -23,7 +23,7 @@ const navbar = () => {
                     <BreadcrumbLink href='/residente' color='white'>RESIDENTE</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbItem>
-                    <BreadcrumbLink href='mailto:reservaespacioscondominio@gmail.com' color='white'>CONTACTO</BreadcrumbLink>
+                    <BreadcrumbLink href='/contact' color='white'>CONTACTO</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
         </Container>
