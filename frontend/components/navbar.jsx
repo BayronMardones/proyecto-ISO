@@ -14,7 +14,7 @@ const navbar = () => {
                     <BreadcrumbLink href='/' color='white' marginLeft='5' >INICIO</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbItem>
-                    <BreadcrumbLink href='/estados' color='white'>RESERVA</BreadcrumbLink>
+                    <BreadcrumbLink href='/estado' color='white'>RESERVA</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbItem>
                     <BreadcrumbLink href='/place' color='white'>ESPACIOS</BreadcrumbLink>
