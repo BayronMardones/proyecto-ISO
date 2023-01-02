@@ -27,16 +27,11 @@ export default function estado() {
         return(
           <Tr key={estado._id}>
             <Td>{estado.fechaReserva}</Td>
-            <Td>{estado.estado}</Td>
-            {/* <Td>{place.name}</Td>*/}
-            {/* <Td>{estado.residente}</Td> */}
-            {/* <Tr key={estado.place}>
-                <Td {...place.name}/>
-            </Tr> */}
-            {/* <Tr key={estado.residente._id}>
-                <Td {residente.name}/> si
-            </Tr> */}
+            <Td>{estado.estado} </Td>
+            <Td>{estado.place.map(place => place.name)}</Td>
+            <Td>{estado.residente.map(residente => residente.name)}</Td>
           </Tr>
+
         )
       })
   }
