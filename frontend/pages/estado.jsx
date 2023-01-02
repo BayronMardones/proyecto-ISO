@@ -26,7 +26,7 @@ export default function estado() {
       return estados.map(estado => {
         return(
           <Tr key={estado._id}>
-            <Td>{estado.fechaReserva}</Td>
+            <Td>{(new Date(estado.fechaReserva)).toLocaleString('es')}</Td>
             <Td>{estado.estado} </Td>
             <Td>{estado.place.map(place => place.name)}</Td>
             <Td>{estado.residente.map(residente => residente.name)}</Td>
