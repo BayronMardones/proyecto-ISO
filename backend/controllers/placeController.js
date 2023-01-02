@@ -25,6 +25,19 @@ const getPlaces = (req, res) => {
     })
 }
 
+const getPlace = (req, res) => {
+    const { id } = req.params
+    Place.findById(id, req.body, (error, place) => {
+        if(error){
+            return res.status(400).send({message: "Error al buscar el place"})
+        }
+        if (!place) {
+            return res.status(404).send({ message: "No se ha podido encontrar el place" })
+        }
+        return res.status(200).send(place)
+    })
+}
+
 //nuevo
 
 const updatePlace = (req, res) => {
@@ -60,6 +73,7 @@ const deletePlace = (req, res) => {
 module.exports = {
     createPlace,
     getPlaces,
+    getPlace,
     updatePlace,
     deletePlace
 }
