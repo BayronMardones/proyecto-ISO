@@ -30,6 +30,7 @@ export default function residente() {
             <Td>#{residente.numeroHogar}</Td>
             <Td>{residente.rol}</Td>
             <Td>{residente.sanciones}</Td>
+            <Td><Button colorScheme='yellow' variant='outline' onClick={()=>router.push(`/residente/${residente._id}`)}>Opciones</Button>  </Td>
           </Tr>
         )
       })

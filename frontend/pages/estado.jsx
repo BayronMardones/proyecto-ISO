@@ -34,7 +34,7 @@ export default function estado() {
                 <Td {...place.name}/>
             </Tr> */}
             {/* <Tr key={estado.residente._id}>
-                <Td {residente.name}/>
+                <Td {residente.name}/> si
             </Tr> */}
           </Tr>
         )
@@ -51,7 +51,7 @@ export default function estado() {
           <Thead>
             <Tr>
             <Td>FECHA RESERVA</Td>
-            <Td>ESTADO</Td>
+            <Td>MOTIVO DE USO</Td>
             <Td>ESPACIO</Td>
             <Td>RESIDENTE</Td>
             </Tr>

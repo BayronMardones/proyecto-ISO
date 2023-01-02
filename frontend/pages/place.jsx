@@ -28,6 +28,7 @@ export default function place() {
             <Td>{place.capacidad}</Td>
             <Td>{place.descripcion}</Td>
             <Td>{place.estado}</Td>
+            <Td><Button colorScheme='yellow' variant='outline' onClick={()=>router.push(`/place/${place._id}`)}>Opciones</Button>  </Td>
           </Tr>
         )
       })
