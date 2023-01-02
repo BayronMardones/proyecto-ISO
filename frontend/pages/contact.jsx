@@ -1,6 +1,7 @@
-import {Box, Container, Button, Text, Spacer, Grid, Link} from '@chakra-ui/react'
+import {Box, Container, Button, Text, Link} from '@chakra-ui/react'
 import Navbar from '../components/navbar'
 import {useRouter} from 'next/router'
+import Login from '../components/login'
 
 
 export default function Home() {
@@ -12,7 +13,7 @@ export default function Home() {
       <Container maxH maxW backgroundSize="cover" backgroundPosition="center" backgroundRepeat="repeat" height="100vh" width="100vw">
         <Box maxW>
           <Box mr={50} align={"right"}>
-            <Button colorScheme='pink' textColor='white' size="lg" bgColor='#7920CA' mt="24px" onClick={()=>router.push('#')} >Inicia Sesión</Button>
+            <Login></Login>
           </Box>
           <Box spacing={8} align={"center"} mt={10} backdropFilter='auto' backdropContrast='50%' borderRadius='full' >
             <Text bgGradient="linear(to-l, #7920CA, #FF0080)" bgClip="text" fontSize="6xl" fontWeight="extrabold"> ¿Tienes dudas?</Text>
