@@ -7,7 +7,7 @@ const navbar = () => {
         <Container bgGradient="linear(to-l, #7920CA, #FF0080)" maxW>
             <Breadcrumb spacing='15px' separator='-' color='white'>
                 <Box boxSize=''>
-                    <Text fontSize="4xl" fontWeight='bold' color='white'><Link fontSize='4x1' href='/'>REC</Link></Text>
+                    <Text fontSize="4xl" fontWeight='bold' color='white'><Link fontSize='4x1' href='/'>●REC</Link></Text>
                 </Box>
                 <Spacer/>
                 <BreadcrumbItem>

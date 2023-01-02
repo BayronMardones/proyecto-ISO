@@ -3,7 +3,7 @@ import { Tr, Td, Container, Heading, Box, Button, Table, Thead } from '@chakra-u
 import {useRouter} from 'next/router'
 import Navbar from '../components/navbar'
 import axios from 'axios'
-import place from './place'
+
 
 
 
@@ -19,6 +19,7 @@ export default function estado() {
 
   useEffect(() => {
     getEstados()
+
   }, [])
 
   const showestados = () => {
@@ -27,8 +28,7 @@ export default function estado() {
           <Tr key={estado._id}>
             <Td>{estado.fechaReserva}</Td>
             <Td>{estado.estado}</Td>
-
-            {/* <Td>{estado.place}</Td> */}
+            {/* <Td>{place.name}</Td>*/}
             {/* <Td>{estado.residente}</Td> */}
             {/* <Tr key={estado.place}>
                 <Td {...place.name}/>
