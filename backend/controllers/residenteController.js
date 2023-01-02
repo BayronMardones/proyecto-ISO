@@ -25,6 +25,18 @@ const getResidentes = (req, res) => {
     })
 }
 
+const getResidente = (req, res) => {
+    const { id } = req.params
+    Residente.findById(id, req.body, (error, residente) => {
+        if(error){
+            return res.status(400).send({message: "Error al buscar el residente"})
+        }
+        if (!residente) {
+            return res.status(404).send({ message: "No se ha podido encontrar el residente" })
+        }
+        return res.status(200).send(residente)
+    })
+}
 
 //
 const updateResidente = (req, res) => {
@@ -56,6 +68,7 @@ const deleteResidente = (req, res) => {
 module.exports = {
     createResidente,
     getResidentes,
+    getResidente,
     updateResidente,
     deleteResidente
 }
