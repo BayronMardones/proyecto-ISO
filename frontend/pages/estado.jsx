@@ -3,6 +3,7 @@ import { Tr, Td, Container, Heading, Box, Button, Table, Thead } from '@chakra-u
 import {useRouter} from 'next/router'
 import Navbar from '../components/navbar'
 import axios from 'axios'
+import LoginBotton from '../components/loginBotton'
 
 
 
@@ -43,7 +44,9 @@ export default function estado() {
   return (
     <Box>
       <Navbar></Navbar>
+      <Box mr={50} align={"right"}><LoginBotton></LoginBotton></Box>
       <Container maxW="container.xl" centerContent backgroundColor={"white"}>
+        
         <Heading textAlign={"center"} my = {10} >RESERVA</Heading>
         <Button colorScheme='teal' variant='outline' onClick={()=>router.push('/estados')}>Realizar reserva</Button>
         <Table variant="simple">

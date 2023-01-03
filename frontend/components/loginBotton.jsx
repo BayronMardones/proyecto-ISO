@@ -1,4 +1,4 @@
-import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton, useDisclosure, Button, Select, onChange} from '@chakra-ui/react'
+import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton, useDisclosure, Button, Select, onChange, Link} from '@chakra-ui/react'
 import Router from 'next/router'
 import React , { useState } from 'react'
 import {login} from '../data/residente'
@@ -11,7 +11,7 @@ function LoginBotton() {
 
     const router = useRouter()
     const [rol, setRol] = useState('RESIDENTE')
-    
+
     const handleChange = (e) => {
         setRol(e.target.value)
     }
@@ -19,21 +19,12 @@ function LoginBotton() {
     const onsubmit = async (e) =>{
         e.preventDefault()
         console.log(rol)
-
-
         try{
-          // if(localStorage.getItem('rol') === NULL){
-          //   localStorage.setItem('rol', rol)
-          // }
-            // const response = await login(rol)
             localStorage.setItem('rol', rol)
-            // router.push('../place')
-            // console.log(response.data.residente)
             console.log(rol)
         }catch(error){
             console.log(error)
         }
-        // const response = await login(rol)
     }
 
     return (
@@ -43,19 +34,18 @@ function LoginBotton() {
         <Modal initialFocusRef={initialRef} finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader align={"center"}>Inicia Sesión</ModalHeader>
+            <ModalHeader align={"center"}>Sesión</ModalHeader>
             <ModalCloseButton />
             <ModalBody pb={6}>
 
-            <Select onChange={handleChange}>
-              {/* no se entrega en el select la variable correpondiente asi que se dieron vuelta */}
+            <Select placeholder="Selecciona una opción" onChange={handleChange} onClick={onsubmit}>
                 <option value='RESIDENTE'>Residente</option>
                 <option value='ADMINISTRADOR'>Administrador</option>
             </Select>
 
             </ModalBody>
             <ModalFooter>
-              <Button colorScheme='blue' mr={3} onClick={onsubmit}>Accede</Button>
+              <Link href='#' onClick={() => window.location.reload()}><Button  colorScheme='green' mr={3} onclick={onClose}>Accede</Button></Link>
               <Button onClick={onClose}>Atrás</Button>
             </ModalFooter>
           </ModalContent>

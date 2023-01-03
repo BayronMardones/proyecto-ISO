@@ -3,6 +3,7 @@ import { Button, Table, Thead, Tr, Td, Container, Heading, Box } from '@chakra-u
 import axios from 'axios'
 import {useRouter} from 'next/router'
 import Navbar from '../components/navbar'
+import LoginBotton from '../components/loginBotton'
 
 
 export default function residente() {
@@ -44,6 +45,7 @@ export default function residente() {
     <Box>
       
       <Navbar></Navbar>
+      <Box mr={50} align={"right"}><LoginBotton></LoginBotton></Box>
       <Container maxW="container.md" centerContent backgroundColor={"white"}>
         <Heading textAlign={"center"} my = {10} >Residentes</Heading>
         <Button colorScheme='teal' variant='outline' onClick={()=>router.push('/residentes')}>Crear Residente</Button>
