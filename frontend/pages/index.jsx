@@ -29,7 +29,7 @@ export default function Home() {
     <Box>
       <Navbar></Navbar>
       
-      <Container maxH maxW bgImg='https://i.postimg.cc/q7Z2Fq2W/gym.jpg' backgroundSize="cover" backgroundPosition="center" backgroundRepeat="repeat" height="100vh" width="100vw">
+      <Container maxH maxW bgImg='gym.jpg' backgroundSize="cover" backgroundPosition="center" backgroundRepeat="repeat" height="100vh" width="100vw">
         <Box maxW>
           <Box mr={50} align={"right"}>
             <LoginBotton></LoginBotton>
