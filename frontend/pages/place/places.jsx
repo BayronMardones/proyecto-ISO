@@ -3,7 +3,7 @@ import { Button, Input, Stack, Container, Heading, FormControl, FormLabel, Texta
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import {useRouter, Router} from 'next/router'
-import Navbar from '../components/navbar'
+import Navbar from '../../components/navbar'
 
 
 const places = () => {

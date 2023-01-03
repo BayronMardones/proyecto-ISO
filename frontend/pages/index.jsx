@@ -1,12 +1,29 @@
 import {Box, Container, Stack, Button, Text, Spacer} from '@chakra-ui/react'
 import Navbar from '../components/navbar'
 import {useRouter} from 'next/router'
-import Login from '../components/login'
-import React from 'react'
+import LoginBotton from '../components/loginBotton'
+import React, { useState } from 'react'
 
 export default function Home() {
   const router = useRouter()
+
+  // const [login, setLogin] = useState({
+  //   rol: ''
+  // })
   
+  // const handleChange = (e) => {
+  //     setLogin({
+  //       ...login,
+  //       [e.target.name]: e.target.value
+  //     })
+  //     console.log(login)
+  // }
+
+  // const onSubmit = (e) =>{
+  //   e.preventDefault()
+  //   console.log(login)
+  // }
+
   return (
     
     <Box>
@@ -15,7 +32,7 @@ export default function Home() {
       <Container maxH maxW bgImg='https://i.postimg.cc/q7Z2Fq2W/gym.jpg' backgroundSize="cover" backgroundPosition="center" backgroundRepeat="repeat" height="100vh" width="100vw">
         <Box maxW>
           <Box mr={50} align={"right"}>
-            <Login></Login>
+            <LoginBotton></LoginBotton>
           </Box>
 
           <Stack spacing={8} align={"center"} mt={20} backdropFilter='auto' backdropContrast='30%' borderRadius='full'>

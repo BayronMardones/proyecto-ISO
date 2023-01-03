@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
-import { HStack, Button } from '@chakra-ui/react'
+import {Container, HStack, Button, Heading } from '@chakra-ui/react'
+import { getPlaces } from '../../../data/places'
 
 export async function getServerSideProps(context){
     try{
-        const response = await axios.get(`${process.env.API_URL}/place/search/${context.params.placeC}`)
+        const response = await getPlaces(context.query.placeC)
+
+        // await axios.get(`${process.env.API_URL}/place/search/${context.params.placeC}`)
         return {
             props: {
                 data: response.data
@@ -23,19 +26,29 @@ export async function getServerSideProps(context){
 
 
 
-const placeC = (data) => {
+const placeC = ( {data} ) => {
 
     const router = useRouter()
     const {placeC} = router.query
     const [place] = useState(data)
     console.log(place)
+    
 
     return (
-        <HStack w={"full"} py={10}>
+
+        <Container>
+
+            <Heading>{place.name}</Heading>
+
+            <HStack w={"full"} py={10}>
                 <Button colorScheme='yellow' variant='outline' onClick={() => router.push(`/producto/editar/${product._id}`)}>Editar</Button>
-                <Button colorScheme='red' variant='outline' onClick={() => router.push()}>Eliminar</Button>
+                <Button colorScheme='red' variant='outline' onClick={() => router.push(`place/delete/${place._id}`)}>Eliminar</Button>
                 <Button colorScheme='blue' variant='outline' onClick={() => router.push('/place')}>Cancelar</Button>
-        </HStack>
+            </HStack>
+
+        </Container>
+
+        
     )
 }
 

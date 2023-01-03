@@ -39,7 +39,7 @@ export default function place() {
       <Navbar></Navbar>
       <Container maxW="container.xl" centerContent backgroundColor={"white"}>
         <Heading textAlign={"center"} my = {10} >ESPACIOS</Heading>
-        <Button colorScheme='teal' variant='outline' onClick={()=>router.push('/places')}>Crear espacio</Button>
+        <Button colorScheme='teal' variant='outline' onClick={()=>router.push('/place/places')}>Crear espacio</Button>
         <Table variant="simple">
           <Thead>
             <Tr>

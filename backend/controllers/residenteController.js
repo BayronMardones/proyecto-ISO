@@ -16,6 +16,19 @@ const createResidente = (req, res) => {
     })
 }
 
+const login = (req, res) => {
+    const{rol} = req.body;
+    Residente.findOne({ rol }, (err, residente)=>{
+        if(err) {
+            return res.status(400).send({message: "Error al encontrar el residente"})
+        }
+        if(!residente){
+            return res.status(404).send({ message: "No se ha podido encontrar el residente" })
+        }
+        return res.status(200).send({ message: "Se ha logeado correctamente" })
+    })
+}
+
 const getResidentes = (req, res) => {
     Residente.find({}, (err, residentes) => {
         if(err){
@@ -67,6 +80,7 @@ const deleteResidente = (req, res) => {
 //
 module.exports = {
     createResidente,
+    login,
     getResidentes,
     getResidente,
     updateResidente,

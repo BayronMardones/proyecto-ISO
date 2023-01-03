@@ -1,11 +1,29 @@
 import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton, useDisclosure, Button, Select, onChange} from '@chakra-ui/react'
-  import React from 'react'
+import React , { useState } from 'react'
 
 
-function Login() {
+function LoginBotton() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialRef = React.useRef(null)
     const finalRef = React.useRef(null)
+
+    const [login, setLogin] = useState({
+      rol: ''
+    })
+    
+    const handleChange = (e) => {
+        setLogin({
+          ...login,
+          [e.target.name]: e.target.value
+          
+        })
+        
+    }
+
+    const onsubmit = (e) =>{
+        e.preventDefault()
+        console.log(login)
+    }
 
     return (
       <>
@@ -18,14 +36,15 @@ function Login() {
             <ModalCloseButton />
             <ModalBody pb={6}>
 
-            <Select placeholder="Selecciona una opción" onChange={onChange} name={"rol"}>
-                <option value='ADMINISTRADOR'>Administrador</option>
-                <option value='RESIDENTE'>Residente</option>
+            <Select placeholder="Selecciona una opción" onChange={handleChange} name={"rol"}>
+              {/* no se entrega en el select la variable correpondiente asi que se dieron vuelta */}
+                <option value='administrador'>Administrador</option>
+                <option value='residente'>Residente</option>
             </Select>
 
             </ModalBody>
             <ModalFooter>
-              <Button colorScheme='blue' mr={3}>Accede</Button>
+              <Button colorScheme='blue' mr={3} onClick={onsubmit}>Accede</Button>
               <Button onClick={onClose}>Atrás</Button>
             </ModalFooter>
           </ModalContent>
@@ -33,4 +52,4 @@ function Login() {
       </>
     )
   }
-  export default Login
+  export default LoginBotton
