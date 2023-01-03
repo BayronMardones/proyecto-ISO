@@ -3,6 +3,7 @@ import { Tr, Td, Container, Heading, Box, Button, Table, Thead } from '@chakra-u
 import {useRouter} from 'next/router'
 import Navbar from '../components/navbar'
 import axios from 'axios'
+import LoginBotton from '../components/loginBotton'
 
 
 
@@ -16,6 +17,10 @@ export default function place() {
     setplaces(response.data)
   }
 
+  const handleChange = (e) => {
+    setRol(e.target.value)
+}
+
   useEffect(() => {
     getplaces()
   }, [])
@@ -23,13 +28,13 @@ export default function place() {
   const showplaces = () => {
       return places.map(place => {
         return(
-          <Tr key={place._id}>
+          <Tr key={place._id} >
             <Td>{place.name}</Td>
             <Td>{place.capacidad}</Td>
             <Td>{place.descripcion}</Td>
             <Td>{place.estado}</Td>
 
-            {localStorage.getItem('rol') === "ADMINISTRADOR" ? 
+            {localStorage.getItem('rol') === "ADMINISTRADOR" ?
                 <Td><Button colorScheme='yellow' variant='outline' onClick={()=>router.push(`/place/${place._id}`)}>Opciones</Button>  </Td>:
                 null
             }
@@ -41,6 +46,7 @@ export default function place() {
   return (
     <Box>
       <Navbar></Navbar>
+      <Box mr={50} align={"right"}><LoginBotton></LoginBotton></Box>
       <Container maxW="container.xl" centerContent backgroundColor={"white"}>
         <Heading textAlign={"center"} my = {10} >ESPACIOS</Heading>
         <Button colorScheme='teal' variant='outline' onClick={()=>router.push('/place/places')}>Crear espacio</Button>

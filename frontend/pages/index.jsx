@@ -24,11 +24,11 @@ export default function Home() {
   //   console.log(login)
   // }
 
+
   return (
-    
     <Box>
+
       <Navbar></Navbar>
-      
       <Container maxH maxW bgImg='gym.jpg' backgroundSize="cover" backgroundPosition="center" backgroundRepeat="repeat" height="100vh" width="100vw">
         <Box maxW>
           <Box mr={50} align={"right"}>
@@ -40,9 +40,7 @@ export default function Home() {
             <Text textColor='#FF0080' fontSize="xl" fontWeight="bold">Pasa un buen rato junto a tu familia y amigos en nuestros espacios comunes</Text>
             <Button colorScheme='purple' textColor='white' size="lg" bgColor='#FF0080' mt="24px" onClick={()=>router.push('/estados')} >RESERVA YA!</Button>
             <Spacer/>
-            
           </Stack>
-          
         </Box>
       </Container>
     </Box>

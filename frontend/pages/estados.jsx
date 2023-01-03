@@ -4,6 +4,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 import {useRouter, Router} from 'next/router'
 import Navbar from '../components/navbar'
+import LoginBotton from '../components/loginBotton'
 
 
 const estados = () => {
@@ -82,6 +83,7 @@ const estados = () => {
     return (
         <Box>
             <Navbar></Navbar>
+            <Box mr={50} align={"right"}><LoginBotton></LoginBotton></Box>
             <Container maxW="container.md">
                 <Heading textAlign={"center"} my={10}>Reserva de espacios</Heading>
                 <Stack>
