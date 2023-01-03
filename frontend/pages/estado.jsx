@@ -30,6 +30,10 @@ export default function estado() {
             <Td>{estado.estado} </Td>
             <Td>{estado.place.map(place => place.name)}</Td>
             <Td>{estado.residente.map(residente => residente.name)}</Td>
+            {localStorage.getItem('rol') === "ADMINISTRADOR" ? 
+               <Td><Button colorScheme='yellow' variant='outline' onClick={()=>router.push(`/estado/${estado._id}`)}>Opciones</Button>  </Td> :
+                null
+            }
           </Tr>
 
         )

@@ -30,7 +30,7 @@ export default function place() {
             <Td>{place.estado}</Td>
 
             {localStorage.getItem('rol') === "ADMINISTRADOR" ? 
-                <Td><Button colorScheme='yellow' variant='outline' onClick={()=>router.push(`/place/${place._id}`)}>Opciones</Button>  </Td>:
+                <Td><Button colorScheme='yellow' variant='outline' onClick={()=>router.push(`/place/editar/${place._id}`)}>Opciones</Button>  </Td>:
                 null
             }
           </Tr>

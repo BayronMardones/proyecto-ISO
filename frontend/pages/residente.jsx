@@ -30,7 +30,11 @@ export default function residente() {
             <Td>#{residente.numeroHogar}</Td>
             <Td>{residente.rol}</Td>
             <Td>{residente.sanciones}</Td>
-            <Td><Button colorScheme='yellow' variant='outline' onClick={()=>router.push(`/residente/${residente._id}`)}>Opciones</Button>  </Td>
+            {localStorage.getItem('rol') === "ADMINISTRADOR" ? 
+               <Td><Button colorScheme='yellow' variant='outline' onClick={()=>router.push(`/residente/${residente._id}`)}>Opciones</Button>  </Td> :
+                null
+            }
+
           </Tr>
         )
       })
@@ -38,10 +42,15 @@ export default function residente() {
 
   return (
     <Box>
+      
       <Navbar></Navbar>
       <Container maxW="container.md" centerContent backgroundColor={"white"}>
         <Heading textAlign={"center"} my = {10} >Residentes</Heading>
         <Button colorScheme='teal' variant='outline' onClick={()=>router.push('/residentes')}>Crear Residente</Button>
+      {/* {localStorage.getItem('rol') === "ADMINISTRADOR" ?
+      <Button colorScheme='teal' variant='outline' onClick={()=>router.push('/residentes')}>Crear Residente</Button>:
+      null} */}
+        
         <Table variant="simple">
           <Thead>
               <Tr>

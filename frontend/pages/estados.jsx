@@ -59,6 +59,7 @@ const estados = () => {
     }
 
     const [places, setplaces] = useState([])
+    const [residentes, setResidentes] = useState([])
   
     const getplaces = async () => {
       const response = await axios.get(`${process.env.API_URL}/places`)
@@ -79,6 +80,25 @@ const estados = () => {
         })
     }
 
+    const getResidentes = async () => {
+        const response = await axios.get(`${process.env.API_URL}/residentes`)
+        setResidentes(response.data)
+      }
+    
+      useEffect(() => {
+        getResidentes()
+      }, [])
+    
+      const showResidentes = () => {
+          return residentes.map(residente => {
+            return(
+              
+              <option key={residente._id} value = {residente._id}>{residente.name}</option>
+  
+            )
+          })
+      }
+
     return (
         <Box>
             <Navbar></Navbar>
@@ -90,7 +110,7 @@ const estados = () => {
                         <Input placeholder="ej: 2022,08,13" type={"date"} onChange={onChange} name={"fechaReserva"}/>
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Codigo de espacio</FormLabel>
+                        <FormLabel>Espacio a reservar</FormLabel>
                         <Select onChange={onChange} name={"place"} >
                             {showplaces()}
                         </Select>
@@ -98,8 +118,11 @@ const estados = () => {
                         {/* <Input placeholder="ID del espacio" type={"id"} onChange={onChange} name={"place"}/> */}
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Codigo de usuario</FormLabel>
-                        <Input placeholder="ID del usuario" type={"id"} onChange={onChange} name={"residente"}/>
+                        <FormLabel>Su nombre</FormLabel>
+                        <Select onChange={onChange} name={"residente"} >
+                            {showResidentes()}
+                        </Select>
+                        {/* <Input placeholder="ID del usuario" type={"id"} onChange={onChange} name={"residente"}/> */}
                     </FormControl>
                     <FormControl>
                         <FormLabel>¿Para que usarás el espacio?</FormLabel>
