@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
-import {Container, HStack, Button, Heading, Stack, Td, Tr, Box, Thead, Table } from '@chakra-ui/react'
+import {Container, HStack, Button, Heading, Stack, Td, Tr, Box, Thead, Table, Link } from '@chakra-ui/react'
+import Swal from 'sweetalert2'
+
 
 export async function getServerSideProps(context){
     try{
@@ -25,19 +27,37 @@ export async function getServerSideProps(context){
 
 const residenteC = (data) => {
 
-   
+
     const router = useRouter()
     const [residente] = useState(data)
     console.log(residente)
 
     const deleteResidente = (data) =>{
-        try{
+        try {
             axios.delete(`${process.env.API_URL}/residente/delete/${residente.data._id}`)
-        router.reload()
-        }catch(err){
+            console.log(response.status)
+            router.push('/residente')
+            if(response.status === 200){
+                Swal.fire({
+                    title: 'Error',
+                    text: 'no se ha podido eliminar el residente',
+                    icon: 'error',
+                    confirmButtonText: 'ok'
+                })
+            }
+        } catch (err) {
             console.log(err)
+            Swal.fire({
+                title: 'Residente Eliminado',
+                text: 'El residente a sido eliminado de manera exitosa',
+                icon: 'success',
+                confirmButtonText: 'ok'
+            }).then((result)=>{
+                if(result.isConfirmed){
+                    router.push('/residente')
+                }
+            })
         }
-        
     }
 
     return (
@@ -59,11 +79,9 @@ const residenteC = (data) => {
                     <Td>{residente.data.sanciones}</Td>
                 </Tr>
              </Thead>
-                
             </Table>
 
             <HStack w={"full"} py={10}>
-                
                 <Button colorScheme='red' variant='outline' onClick={() => deleteResidente(residente.data._id)}>Eliminar</Button>
                 <Button colorScheme='blue' variant='outline' onClick={() => router.push('/residente')}>Cancelar</Button>
             </HStack>

@@ -34,6 +34,34 @@ const placeC = ( {data} ) => {
     console.log(place)
     
 
+    const deletePlace = (data) =>{
+        try {
+            axios.delete(`${process.env.API_URL}/place/delete/${place.data._id}`)
+            console.log(response.status)
+            router.push('/place')
+            if(response.status === 200){
+                Swal.fire({
+                    title: 'Error',
+                    text: 'no se ha podido eliminar el residente',
+                    icon: 'error',
+                    confirmButtonText: 'ok'
+                })
+            }
+        } catch (err) {
+            console.log(err)
+            Swal.fire({
+                title: 'Residente Eliminado',
+                text: 'El residente a sido eliminado de manera exitosa',
+                icon: 'success',
+                confirmButtonText: 'ok'
+            }).then((result)=>{
+                if(result.isConfirmed){
+                    router.push('/place')
+                }
+            })
+        }
+    }
+
     return (
 
         <Container>
@@ -41,8 +69,7 @@ const placeC = ( {data} ) => {
             <Heading>{place.name}</Heading>
 
             <HStack w={"full"} py={10}>
-                <Button colorScheme='yellow' variant='outline' onClick={() => router.push(`/producto/editar/${product._id}`)}>Editar</Button>
-                <Button colorScheme='red' variant='outline' onClick={() => router.push(`place/delete/${place._id}`)}>Eliminar</Button>
+                <Button colorScheme='red' variant='outline' onClick={() => deletePlace(residente.data._id)}>Eliminar</Button>
                 <Button colorScheme='blue' variant='outline' onClick={() => router.push('/place')}>Cancelar</Button>
             </HStack>
 
