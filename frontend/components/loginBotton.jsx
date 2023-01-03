@@ -10,7 +10,7 @@ function LoginBotton() {
     const finalRef = React.useRef(null)
 
     const router = useRouter()
-    const [rol, setRol] = useState('')
+    const [rol, setRol] = useState('RESIDENTE')
     
     const handleChange = (e) => {
         setRol(e.target.value)
@@ -19,7 +19,12 @@ function LoginBotton() {
     const onsubmit = async (e) =>{
         e.preventDefault()
         console.log(rol)
+
+
         try{
+          // if(localStorage.getItem('rol') === NULL){
+          //   localStorage.setItem('rol', rol)
+          // }
             // const response = await login(rol)
             localStorage.setItem('rol', rol)
             // router.push('../place')
@@ -42,10 +47,10 @@ function LoginBotton() {
             <ModalCloseButton />
             <ModalBody pb={6}>
 
-            <Select placeholder="Selecciona una opción" onChange={handleChange}>
+            <Select onChange={handleChange}>
               {/* no se entrega en el select la variable correpondiente asi que se dieron vuelta */}
-                <option value='administrador'>Administrador</option>
-                <option value='residente'>Residente</option>
+                <option value='RESIDENTE'>Residente</option>
+                <option value='ADMINISTRADOR'>Administrador</option>
             </Select>
 
             </ModalBody>
