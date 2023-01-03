@@ -1,28 +1,34 @@
 import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton, useDisclosure, Button, Select, onChange} from '@chakra-ui/react'
+import Router from 'next/router'
 import React , { useState } from 'react'
-
+import {login} from '../data/residente'
+import { useRouter } from 'next/router'
 
 function LoginBotton() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialRef = React.useRef(null)
     const finalRef = React.useRef(null)
 
-    const [login, setLogin] = useState({
-      rol: ''
-    })
+    const router = useRouter()
+    const [rol, setRol] = useState('')
     
     const handleChange = (e) => {
-        setLogin({
-          ...login,
-          [e.target.name]: e.target.value
-          
-        })
-        
+        setRol(e.target.value)
     }
 
-    const onsubmit = (e) =>{
+    const onsubmit = async (e) =>{
         e.preventDefault()
-        console.log(login)
+        console.log(rol)
+        try{
+            // const response = await login(rol)
+            localStorage.setItem('rol', rol)
+            // router.push('../place')
+            // console.log(response.data.residente)
+            console.log(rol)
+        }catch(error){
+            console.log(error)
+        }
+        // const response = await login(rol)
     }
 
     return (
@@ -36,7 +42,7 @@ function LoginBotton() {
             <ModalCloseButton />
             <ModalBody pb={6}>
 
-            <Select placeholder="Selecciona una opción" onChange={handleChange} name={"rol"}>
+            <Select placeholder="Selecciona una opción" onChange={handleChange}>
               {/* no se entrega en el select la variable correpondiente asi que se dieron vuelta */}
                 <option value='administrador'>Administrador</option>
                 <option value='residente'>Residente</option>

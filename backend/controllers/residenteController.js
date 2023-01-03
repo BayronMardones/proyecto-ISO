@@ -18,7 +18,7 @@ const createResidente = (req, res) => {
 
 const login = (req, res) => {
     const{rol} = req.body;
-    Residente.findOne({ rol }, (err, residente)=>{
+    Residente.find({ rol }, (err, residente)=>{
         if(err) {
             return res.status(400).send({message: "Error al encontrar el residente"})
         }
