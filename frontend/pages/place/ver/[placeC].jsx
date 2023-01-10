@@ -70,7 +70,7 @@ const placeC = ( data ) => {
             <Table variant="simple">
             <Thead>
               <Tr>
-                <Td>Nombre</Td>
+                <Td>ID</Td>
                 <Td>Capacidad</Td>
                 <Td>Descripcion</Td>
                 <Td>Estado</Td>
