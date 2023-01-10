@@ -29,12 +29,12 @@ function LoginBotton() {
 
     return (
       <>
-        <Button onClick={onOpen} colorScheme='pink' textColor='white' size="lg" bgColor='#7920CA' mt="24px">Inicia Sesión</Button>
+        <Button onClick={onOpen} colorScheme='pink' textColor='white' size="lg" bgColor='#7920CA' mt="24px">Sesión</Button>
 
         <Modal initialFocusRef={initialRef} finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader align={"center"}>Sesión</ModalHeader>
+            <ModalHeader align={"center"}>Inicia Sesión</ModalHeader>
             <ModalCloseButton />
             <ModalBody pb={6}>
 

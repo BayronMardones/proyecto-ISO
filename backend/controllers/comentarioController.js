@@ -14,7 +14,7 @@ const createComentario = (req, res) => {
         }
 
         let directory = [//que hay que cambiarlo luego por el de los residentes
-        'bayron.mardones1901@alumnos.ubiobio.cl'  
+        'bayron.mardones1901@alumnos.ubiobio.cl'
         ]
         const mailOptions = {
             from: `Sistema de reservas <reserva espacio>`,
