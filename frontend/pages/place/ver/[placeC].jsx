@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
-import {Container, HStack, Button, Heading } from '@chakra-ui/react'
-import { getPlaces } from '../../../data/places'
+import {Container, HStack, Button, Heading, Stack, Td, Tr, Box, Thead, Table } from '@chakra-ui/react'
 import Swal from 'sweetalert2'
 
 export async function getServerSideProps(context){
@@ -68,9 +67,26 @@ const placeC = ( data ) => {
         <Container>
 
             <Heading>{place.data.name}</Heading>
+            <Table variant="simple">
+            <Thead>
+              <Tr>
+                <Td>Nombre</Td>
+                <Td>Capacidad</Td>
+                <Td>Descripcion</Td>
+                <Td>Estado</Td>
+                </Tr>
+                <Tr>
+                    <Td>{place.data._id}</Td>
+                    <Td>{place.data.capacidad}</Td>
+                    <Td>{place.data.descripcion}</Td>
+                    <Td>{place.data.estado}</Td>
+                </Tr>
+             </Thead>
+            </Table>
+
 
             <HStack w={"full"} py={10}>
-                {/* <Button colorScheme='yellow' variant='outline' onClick={() => router.push(`/producto/editar/${product._id}`)}>Editar</Button> */}
+            <Button colorScheme='yellow' variant='outline' onClick={()=>router.push(`../updateP/${place.data._id}`)}>Editar</Button>
                 <Button colorScheme='red' variant='outline' onClick={() => deletePlace(place.data._id)}>Eliminar</Button>
                 <Button colorScheme='blue' variant='outline' onClick={() => router.push('/place')}>Cancelar</Button>
             </HStack>
