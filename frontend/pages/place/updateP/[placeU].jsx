@@ -115,6 +115,7 @@ const placesU = (data, context) => {
                     </FormControl>
                     <Button colorScheme='teal' variant='outline' type='submit' onClick={onSubmit}>Actualizar espacio</Button>
                     <Button colorScheme='red' variant='outline' onClick={()=>router.push(`../ver/${place._id}`)}>Cancelar</Button>
+                    
                 </Stack>
             </Container>
         </Box>
