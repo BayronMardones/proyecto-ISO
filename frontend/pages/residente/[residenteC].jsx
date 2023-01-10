@@ -24,7 +24,6 @@ export async function getServerSideProps(context){
 }
 
 
-
 const residenteC = (data) => {
 
 
@@ -60,6 +59,7 @@ const residenteC = (data) => {
         }
     }
 
+
     return (
         <Container centerContent>
 
@@ -82,6 +82,7 @@ const residenteC = (data) => {
             </Table>
 
             <HStack w={"full"} py={10}>
+                <Button colorScheme='yellow' variant='outline' onClick={()=>router.push(`/residente/updateR/${residente.data._id}`)}>Editar</Button>
                 <Button colorScheme='red' variant='outline' onClick={() => deleteResidente(residente.data._id)}>Eliminar</Button>
                 <Button colorScheme='blue' variant='outline' onClick={() => router.push('/residente')}>Cancelar</Button>
             </HStack>
