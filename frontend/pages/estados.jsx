@@ -1,8 +1,8 @@
-import {useState, useEffect} from 'react'
-import { Button, Input, Stack, Container, Heading, FormControl, FormLabel, Textarea, Box, Select} from '@chakra-ui/react'
+import { useState, useEffect } from 'react'
+import { Button, Input, Stack, Container, Heading, FormControl, FormLabel, Textarea, Box, Select } from '@chakra-ui/react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import {useRouter, Router} from 'next/router'
+import { useRouter, Router } from 'next/router'
 import Navbar from '../components/navbar'
 import LoginBotton from '../components/loginBotton'
 
@@ -17,24 +17,24 @@ const estados = () => {
         residente: ''
     })
 
-    const onSubmit = async(e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
         console.log(values)
         try {
             const response = await axios.post(`${process.env.API_URL}/estado`, values)
             console.log(response)
-            if(response.status === 200){
+            if (response.status === 200) {
                 Swal.fire({
                     title: 'Place creado',
                     text: 'El la reserva a sido creada de manera exitosa',
                     icon: 'success',
                     confirmButtonText: 'ok'
-                }).then((result)=>{
-                    if(result.isConfirmed){
+                }).then((result) => {
+                    if (result.isConfirmed) {
                         router.push('/estado')
                     }
                 })
-            }else{
+            } else {
                 Swal.fire({
                     title: 'Error',
                     text: 'no se ha podido crear la reserva',
@@ -61,44 +61,44 @@ const estados = () => {
 
     const [places, setplaces] = useState([])
     const [residentes, setResidentes] = useState([])
-  
+
     const getplaces = async () => {
-      const response = await axios.get(`${process.env.API_URL}/places`)
-      setplaces(response.data)
+        const response = await axios.get(`${process.env.API_URL}/places`)
+        setplaces(response.data)
     }
-  
+
     useEffect(() => {
-      getplaces()
+        getplaces()
     }, [])
-  
+
     const showplaces = () => {
         return places.map(place => {
-          return(
-            
-            <option key={place._id} value = {place._id}>{place.name}</option>
+            return (
 
-          )
+                <option key={place._id} value={place._id}>{place.name}</option>
+
+            )
         })
     }
 
     const getResidentes = async () => {
         const response = await axios.get(`${process.env.API_URL}/residentes`)
         setResidentes(response.data)
-      }
-    
-      useEffect(() => {
+    }
+
+    useEffect(() => {
         getResidentes()
-      }, [])
-    
-      const showResidentes = () => {
-          return residentes.map(residente => {
-            return(
-              
-              <option key={residente._id} value = {residente._id}>{residente.name}</option>
-  
+    }, [])
+
+    const showResidentes = () => {
+        return residentes.map(residente => {
+            return (
+
+                <option key={residente._id} value={residente._id}>{residente.name}</option>
+
             )
-          })
-      }
+        })
+    }
 
     return (
         <Box>
@@ -109,14 +109,14 @@ const estados = () => {
                 <Stack>
                     <FormControl>
                         <FormLabel>Fecha de reserva</FormLabel>
-                        <Input placeholder="ej: 2022,08,13" type={"date"} onChange={onChange} name={"fechaReserva"}/>
+                        <Input placeholder="ej: 2022,08,13" type={"date"} onChange={onChange} name={"fechaReserva"} />
                     </FormControl>
                     <FormControl>
                         <FormLabel>Espacio a reservar</FormLabel>
                         <Select onChange={onChange} name={"place"} >
                             {showplaces()}
                         </Select>
-                        
+
                         {/* <Input placeholder="ID del espacio" type={"id"} onChange={onChange} name={"place"}/> */}
                     </FormControl>
                     <FormControl>
@@ -128,14 +128,14 @@ const estados = () => {
                     </FormControl>
                     <FormControl>
                         <FormLabel>¿Para que usarás el espacio?</FormLabel>
-                        <Textarea placeholder="ej: Para fiestas" type={"text"} onChange={onChange} name={"estado"}/>
+                        <Textarea placeholder="ej: Para fiestas" type={"text"} onChange={onChange} name={"estado"} />
                     </FormControl>
                     <Button colorScheme='teal' variant='outline' type='submit' onClick={onSubmit}>Crear espacio</Button>
-                    <Button colorScheme='red' variant='outline' onClick={()=>router.push('/estado')}>Cancelar</Button>
+                    <Button colorScheme='red' variant='outline' onClick={() => router.push('/estado')}>Cancelar</Button>
                 </Stack>
             </Container>
         </Box>
     )
-    }
+}
 
 export default estados
