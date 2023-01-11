@@ -9,13 +9,6 @@ const PlaceSchema = new Schema({
         type: Number,
         required: true
     },
-    // residente: {
-    //     type: String, 
-    //     required: true
-
-    //     // mongoose.Schema.Types.ObjectId,
-    //     // ref:'residente'
-    // },
     descripcion: {
         type: String,
         required: true

@@ -1,17 +1,29 @@
 const Comentario = require('../models/comentario');
+const sendmail = require('../controllers/mailerController');
 
 const createComentario = (req, res) => {
-    const {estado, nombreResidente, comentario, imagen} = req.body;
+    const {estado, nombreResidente, comentario} = req.body;
     const newComentario = new Comentario({
         estado,
         nombreResidente,
-        comentario,
-        imagen,
+        comentario
     });
     newComentario.save((err, comentario) => {
         if(err){
             return res.status(400).send({message: "Error al crear comentario"})
         }
+
+        let directory = [//que hay que cambiarlo luego por el de los residentes
+        'bayron.mardones1901@alumnos.ubiobio.cl'
+        ]
+        const mailOptions = {
+            from: `Sistema de reservas <reserva espacio>`,
+            to: directory,
+            subject: 'Comentario de reserva',
+            text: `se ha hecho un comentario a la reserva ${comentario.estado}`
+        }
+        sendmail(mailOptions)
+
         return res.status(200).send(comentario)
     })
 }
